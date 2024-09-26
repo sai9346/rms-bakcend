@@ -16,9 +16,10 @@ connectDB();
 
 // CORS configuration
 const allowedOrigins = [
-  'http://localhost:3000', // Frontend local URL
-  'https://rms-frontend-ashy.vercel.app/' // Vercel production URL (update with your actual URL)
+  'http://localhost:3000', // Localhost during development
+  'https://rms-frontend-ashy.vercel.app' // Your Vercel frontend URL
 ];
+
 
 // CORS middleware
 app.use(cors({
