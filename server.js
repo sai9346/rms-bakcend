@@ -37,7 +37,7 @@ app.use(cors({
 app.use(express.json());
 
 // Define API routes
-app.use('/api/auth', authRoutes);
+//app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/roles', roleRoutes);
 app.use('/api/access-controls', accessControlRoutes);
