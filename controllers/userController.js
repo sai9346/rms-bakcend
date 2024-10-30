@@ -1,19 +1,25 @@
 const User = require('../models/User');
+const { sendRegistrationLink } = require('../services/mailService');
+
 
 
 // Create a new user
 const createUser = async (req, res) => {
   const { name, email, roles } = req.body;
-  if (!name || !email) {
-    return res.status(400).json({ message: 'Name and email are required' });
+  if (!name || !email || !roles) {
+    return res.status(400).json({ message: 'All fields are required' });
   }
   try {
     const newUser = new User({ name, email, roles });
     await newUser.save();
-    res.status(201).json({ message: 'User created successfully', user: newUser });
-  } catch (error) {
-    res.status(400).json({ message: 'Error creating user', error: error.message });
-  }
+    const registrationLink = `http://localhost:3000/team-registration/${newUser._id}`;
+
+    // Send the registration link via email
+    await sendRegistrationLink(email, registrationLink);
+
+    res.status(201).json({ message: 'User created and registration email sent successfully', user: newUser });  } catch (error) {
+      res.status(500).json({ message: 'Error creating user or sending email', error: error.message });
+      }
 };
 
 // Get all users
@@ -68,6 +74,10 @@ const deleteUser = async (req, res) => {
     res.status(500).json({ message: 'Error deleting user', error: error.message });
   }
 };
+
+
+
+
 
 module.exports = {
   createUser,
