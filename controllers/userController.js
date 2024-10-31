@@ -12,7 +12,8 @@ const createUser = async (req, res) => {
   try {
     const newUser = new User({ name, email, roles });
     await newUser.save();
-    const registrationLink = `http://localhost:3000/team-registration/${newUser._id}`;
+    const registrationLink = `https://rms-frontend-ashy.vercel.app/team-registration/${newUser._id}`;
+
 
     // Send the registration link via email
     await sendRegistrationLink(email, registrationLink);
