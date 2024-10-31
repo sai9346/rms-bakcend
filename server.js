@@ -20,6 +20,7 @@ connectDB();
 const allowedOrigins = [
   'http://localhost:3000',
   'https://rms-frontend-ashy.vercel.app',
+  'https://my-repo-eight-omega.vercel.app/',
 ];
 
 // CORS middleware
