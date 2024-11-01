@@ -21,6 +21,8 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://rms-frontend-ashy.vercel.app',
   'https://my-repo-eight-omega.vercel.app',
+  'https://rms-frontend-gamma.vercel.app',
+ 'https://repo-omega-rust.vercel.app',
 ];
 
 // CORS middleware
