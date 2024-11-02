@@ -24,7 +24,7 @@ const allowedOrigins = [
   'https://rms-frontend-gamma.vercel.app',
  'https://repo-omega-rust.vercel.app',
  'https://rms-front-mauve.vercel.app',
- 'https://front-rms.vercel.app/',
+ 'https://front-rms.vercel.app',
 ];
 
 // CORS middleware
