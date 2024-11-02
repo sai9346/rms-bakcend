@@ -7,8 +7,16 @@ const userSchema = new mongoose.Schema({
     {
       role: { type: String, enum: ['Job Post Editor', 'Candidate Reviewer', 'Interview Scheduler'] },
       accessLevel: { type: String, enum: ['View-only', 'Edit', 'Full Control'] }
-    }
-  ]
+    },
+    
+  ],
+
+  registrationStatus: {
+    type: String,
+    enum: ['Registered', 'Not Registered'],
+    default: 'Not Registered', // Default to Not Registered
+  },
+  
 });
 
 module.exports = mongoose.model('User', userSchema);

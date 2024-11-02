@@ -12,7 +12,7 @@ const createUser = async (req, res) => {
   try {
     const newUser = new User({ name, email, roles });
     await newUser.save();
-    const registrationLink = `https://rms-frontend-ashy.vercel.app/team-registration/${newUser._id}`;
+    const registrationLink = `http://localhost:3000/team-registration/${newUser._id}`;
 
 
     // Send the registration link via email
@@ -79,6 +79,25 @@ const deleteUser = async (req, res) => {
 
 
 
+//update user registration
+const updateRegistration=async(req,res)=>{
+  const { userId } = req.params;
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    user.registrationStatus = 'Registered'; // Update registration status
+    await user.save();
+
+    res.status(200).json({ message: 'User successfully registered' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error confirming registration', error });
+  }
+
+}
+
 
 
 module.exports = {
@@ -87,4 +106,5 @@ module.exports = {
   getUserById,
   updateUser,
   deleteUser,
+  updateRegistration,
 };
