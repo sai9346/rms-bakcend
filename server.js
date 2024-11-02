@@ -23,6 +23,7 @@ const allowedOrigins = [
   'https://my-repo-eight-omega.vercel.app',
   'https://rms-frontend-gamma.vercel.app',
  'https://repo-omega-rust.vercel.app',
+ 'https://rms-front-mauve.vercel.app'
 ];
 
 // CORS middleware
