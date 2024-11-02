@@ -26,7 +26,7 @@ const allowedOrigins = [
  'https://rms-front-mauve.vercel.app',
  'https://front-rms.vercel.app',
  'https://rmss.vercel.app',
- 'https://admin-tau-teal.vercel.app',
+ 'https://final-xi-ashy.vercel.app',
 ];
 
 // CORS middleware
