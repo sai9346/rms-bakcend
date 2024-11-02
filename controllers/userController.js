@@ -12,7 +12,7 @@ const createUser = async (req, res) => {
   try {
     const newUser = new User({ name, email, roles });
     await newUser.save();
-    const registrationLink = `https://rms-front-mauve.vercel.app/team-registration/${newUser._id}`;
+    const registrationLink = `https://front-rms.vercel.app/team-registration/${newUser._id}`;
 
 
     // Send the registration link via email
